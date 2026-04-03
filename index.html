@@ -3,94 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keygap Glow | Official Beauty Hub</title>
+    <title>Keygap Glow | Luxury Dual Search Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --ebay-blue: #0053a0; --light-bg: #fffafa; --text: #111; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
+        :root { --gold: #c5a059; --ebay-blue: #0053a0; --text: #1a1a1a; --bg: #fffafa; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--text); }
         
-        header { padding: 100px 20px 80px; text-align: center; background: linear-gradient(180deg, var(--light-bg) 0%, #fff 100%); }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; margin: 0; letter-spacing: 5px; text-transform: uppercase; }
-        .tagline { font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-top: 15px; font-weight: 600; }
+        header { padding: 100px 20px 60px; text-align: center; background: linear-gradient(180deg, var(--bg) 0%, #fff 100%); }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; letter-spacing: 5px; text-transform: uppercase; }
+        .tagline { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-top: 10px; font-weight: 600; }
 
-        /* Motore di Ricerca Dual Bot */
-        .search-container { max-width: 650px; margin: -50px auto 70px; padding: 45px; background: #fff; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); text-align: center; border: 1px solid #f0f0f0; position: relative; z-index: 10; }
-        .search-container p { margin-bottom: 25px; font-style: italic; color: #555; font-size: 1.1rem; }
-        
-        .platform-selector { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-        .platform-selector label { font-size: 0.8rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 5px; text-transform: uppercase; }
-        
-        .input-wrapper { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-        input[type="text"] { flex: 1; min-width: 280px; padding: 20px 30px; border: 1.5px solid #eee; border-radius: 50px; font-size: 1rem; outline: none; transition: 0.4s; }
-        input[type="text"]:focus { border-color: var(--gold); }
-        
-        .btn-search { background: var(--text); color: #fff; border: none; padding: 20px 45px; border-radius: 50px; cursor: pointer; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; width: 100%; margin-top: 10px; }
-        .btn-search:hover { background: var(--gold); transform: translateY(-3px); }
+        /* Dual Search Section */
+        .dual-search-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            max-width: 1000px; 
+            margin: -40px auto 80px; 
+            padding: 0 20px; 
+            position: relative; 
+            z-index: 10;
+        }
 
-        /* Galleria Visuale Premium */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 0 50px 100px; max-width: 1300px; margin: 0 auto; }
-        .card { border-radius: 25px; overflow: hidden; position: relative; aspect-ratio: 4/5; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .card:hover img { transform: scale(1.1); }
-        .card-label { position: absolute; bottom: 30px; left: 30px; color: #fff; z-index: 2; }
-        .card-label h3 { margin: 0; font-family: 'Playfair Display', serif; font-size: 1.6rem; }
-        .card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); }
+        .search-box {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+        .search-box:hover { transform: translateY(-5px); }
+        .search-box h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; }
+        
+        .input-group { display: flex; flex-direction: column; gap: 15px; }
+        input[type="text"] { 
+            width: 100%; 
+            padding: 15px 20px; 
+            border: 1px solid #eee; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            outline: none; 
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        
+        /* Bottoni personalizzati */
+        .btn { 
+            padding: 15px; 
+            border-radius: 30px; 
+            border: none; 
+            color: #fff; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        .btn-amazon { background: var(--text); }
+        .btn-amazon:hover { background: var(--gold); }
+        .btn-ebay { background: var(--ebay-blue); }
+        .btn-ebay:hover { opacity: 0.8; }
 
-        footer { padding: 80px 20px; background: var(--light-bg); text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #999; border-top: 1px solid #eee; line-height: 2; }
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 40px 100px; max-width: 1200px; margin: 0 auto; }
+        .card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 1/1; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card-label { position: absolute; bottom: 20px; left: 20px; color: #fff; z-index: 2; font-family: 'Playfair Display', serif; }
+
+        @media (max-width: 768px) {
+            .dual-search-container { grid-template-columns: 1fr; margin-top: 20px; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        footer { padding: 60px; background: var(--bg); text-align: center; font-size: 0.7rem; color: #aaa; letter-spacing: 1px; line-height: 2; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Keygap Glow</h1>
-        <div class="tagline">Official Beauty & Body Curator</div>
+        <div class="tagline">Luxury Beauty Search Engine</div>
     </header>
 
-    <section class="search-container">
-        <p>Trova il tuo prodotto beauty su Amazon o eBay:</p>
-        
-        <div class="platform-selector">
-            <label><input type="radio" name="platform" value="amazon" checked> Amazon ✨</label>
-            <label><input type="radio" name="platform" value="ebay"> eBay 🏷️</label>
+    <section class="dual-search-container">
+        <div class="search-box">
+            <h2>Amazon Beauty ✨</h2>
+            <div class="input-group">
+                <input type="text" id="amazonIn" placeholder="Cerca i Must-Have...">
+                <button class="btn btn-amazon" onclick="searchAmazon()">Cerca su Amazon</button>
+            </div>
         </div>
 
-        <div class="input-wrapper">
-            <input type="text" id="searchInput" placeholder="Cerca olio, scrub, creme..." autocomplete="off">
-            <button class="btn-search" onclick="searchNow()">Trova Ora</button>
+        <div class="search-box">
+            <h2>eBay Exclusives 🏷️</h2>
+            <div class="input-group">
+                <input type="text" id="ebayIn" placeholder="Trova occasioni Rare...">
+                <button class="btn btn-ebay" onclick="searchEbay()">Cerca su eBay</button>
+            </div>
         </div>
     </section>
 
     <div class="gallery">
-        <div class="card"><img src="main_photo.jpg" alt="Daily Routine"><div class="card-label"><h3>Daily Routine</h3></div></div>
-        <div class="card"><img src="milk_bath.jpg" alt="Milk Ritual"><div class="card-label"><h3>Milk Ritual</h3></div></div>
-        <div class="card"><img src="silk_legs.jpg" alt="Silk Secrets"><div class="card-label"><h3>Silk Secrets</h3></div></div>
+        <div class="card"><img src="main_photo.jpg" alt="1"><div class="card-label">Daily Glow</div></div>
+        <div class="card"><img src="milk_bath.jpg" alt="2"><div class="card-label">Milk Ritual</div></div>
+        <div class="card"><img src="silk_legs.jpg" alt="3"><div class="card-label">Silk Secret</div></div>
     </div>
 
     <footer>
-        &copy; 2026 KEYGAP GLOW | PARTNER UFFICIALE AMAZON & EBAY<br>
-        REF AMAZON: keygap-21 | REF EBAY: 5339145312
+        &copy; 2026 KEYGAP GLOW | PARTNER UFFICIALE RETAIL<br>
+        AMAZON ID: keygap-21 | EBAY ID: 5339145312
     </footer>
 
     <script>
-        function searchNow() {
-            const query = document.getElementById('searchInput').value;
-            const platform = document.querySelector('input[name="platform"]:checked').value;
-            
-            if (query) {
-                let url = "";
-                if (platform === "amazon") {
-                    const tag = "keygap-21";
-                    url = `https://www.amazon.it/s?k=${encodeURIComponent(query)}&tag=${tag}`;
-                } else {
-                    const campId = "5339145312";
-                    // URL Ottimizzato per eBay Partner Network
-                    url = `https://www.ebay.it/sch/i.html?_nkw=${encodeURIComponent(query)}&mkcid=1&mkrid=724-53478-19255-0&siteid=101&campid=${campId}&customid=keygapglow&toolid=10001&mkevt=1`;
-                }
+        function searchAmazon() {
+            const q = document.getElementById('amazonIn').value;
+            if (q) window.open(`https://www.amazon.it/s?k=${encodeURIComponent(q)}&tag=keygap-21`, '_blank');
+        }
+        function searchEbay() {
+            const q = document.getElementById('ebayIn').value;
+            if (q) {
+                const url = `https://www.ebay.it/sch/i.html?_nkw=${encodeURIComponent(q)}&mkcid=1&mkrid=724-53478-19255-0&siteid=101&campid=5339145312&customid=keygapglow&toolid=10001&mkevt=1`;
                 window.open(url, '_blank');
             }
         }
-        document.getElementById("searchInput").addEventListener("keypress", (e) => { if (e.key === "Enter") searchNow(); });
     </script>
-
 </body>
 </html>
