@@ -117,14 +117,23 @@
     </footer>
 
     <script>
+        // Gestione pressione tasto Invio
+        document.getElementById("amazonIn").addEventListener("keypress", (e) => { if (e.key === "Enter") searchAmazon(); });
+        document.getElementById("ebayIn").addEventListener("keypress", (e) => { if (e.key === "Enter") searchEbay(); });
+
         function searchAmazon() {
             const q = document.getElementById('amazonIn').value;
-            if (q) window.open(`https://www.amazon.it/s?k=${encodeURIComponent(q)}&tag=keygap-21`, '_blank');
+            if (q) {
+                // Il parametro &i=beauty forza la ricerca nella categoria Bellezza di Amazon
+                const url = `https://www.amazon.it/s?k=${encodeURIComponent(q)}&i=beauty&tag=keygap-21`;
+                window.open(url, '_blank');
+            }
         }
         function searchEbay() {
             const q = document.getElementById('ebayIn').value;
             if (q) {
-                const url = `https://www.ebay.it/sch/i.html?_nkw=${encodeURIComponent(q)}&mkcid=1&mkrid=724-53478-19255-0&siteid=101&campid=5339145312&customid=keygapglow&toolid=10001&mkevt=1`;
+                // Il parametro &_sacat=26395 forza la ricerca nella categoria Salute e Bellezza di eBay
+                const url = `https://www.ebay.it/sch/i.html?_nkw=${encodeURIComponent(q)}&_sacat=26395&mkcid=1&mkrid=724-53478-19255-0&siteid=101&campid=5339145312&customid=keygapglow&toolid=10001&mkevt=1`;
                 window.open(url, '_blank');
             }
         }
