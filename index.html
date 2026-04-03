@@ -3,118 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keygap Glow | Luxury Dual Search Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Keygap Glow</title>
     <style>
-        :root { --gold: #c5a059; --ebay-blue: #0053a0; --text: #1a1a1a; --bg: #fffafa; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #fff; color: var(--text); }
-        
-        header { padding: 100px 20px 60px; text-align: center; background: linear-gradient(180deg, var(--bg) 0%, #fff 100%); }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; letter-spacing: 5px; text-transform: uppercase; }
-        .tagline { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-top: 10px; font-weight: 600; }
-
-        .dual-search-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: -40px auto 80px; padding: 0 20px; position: relative; z-index: 10; }
-        .search-box { background: #fff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; transition: transform 0.3s ease; }
-        .search-box:hover { transform: translateY(-5px); }
-        .search-box h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; }
-        
-        .input-group { display: flex; flex-direction: column; gap: 15px; }
-        input[type="text"] { width: 100%; padding: 15px 20px; border: 1px solid #eee; border-radius: 30px; font-size: 0.9rem; outline: none; box-sizing: border-box; transition: 0.3s; }
-        
-        .btn { padding: 15px; border-radius: 30px; border: none; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
-        .btn-amazon { background: var(--text); }
-        .btn-amazon:hover { background: var(--gold); }
-        .btn-ebay { background: var(--ebay-blue); }
-        .btn-ebay:hover { opacity: 0.8; }
-
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 40px 100px; max-width: 1200px; margin: 0 auto; }
-        .card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 1/1; }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
-        .card-label { position: absolute; bottom: 20px; left: 20px; color: #fff; z-index: 2; font-family: 'Playfair Display', serif; }
-
-        @media (max-width: 768px) {
-            .dual-search-container { grid-template-columns: 1fr; margin-top: 20px; }
-            h1 { font-size: 2.5rem; }
+        /* Stile Luxury e Minimalista */
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: #fafafa; 
+            color: #333; 
+            margin: 0; 
+            padding: 0;
+        }
+        header { 
+            text-align: center; 
+            padding: 50px 20px 30px; 
+            background: #ffffff; 
+            border-bottom: 1px solid #eaeaea; 
+        }
+        h1 { 
+            font-family: 'Georgia', serif; 
+            color: #d4af37; /* Oro Luxury */
+            margin: 0; 
+            font-size: 3em; 
+            letter-spacing: 2px;
+        }
+        header p {
+            color: #777;
+            font-size: 1.1em;
+            margin-top: 10px;
         }
 
-        footer { padding: 60px; background: var(--bg); text-align: center; font-size: 0.7rem; color: #aaa; letter-spacing: 1px; line-height: 2; }
+        /* Barra di Ricerca Libera */
+        .search-section { 
+            text-align: center; 
+            padding: 40px 20px 20px; 
+        }
+        .search-bar { 
+            padding: 15px 20px; 
+            width: 100%; 
+            max-width: 500px; 
+            border: 1px solid #ccc; 
+            border-radius: 30px; 
+            font-size: 1em;
+            outline: none; 
+            transition: border-color 0.3s;
+        }
+        .search-bar:focus {
+            border-color: #d4af37;
+        }
+        .search-btn { 
+            padding: 15px 30px; 
+            background: #111; 
+            color: white; 
+            border: none; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-size: 1em;
+            font-weight: bold;
+            margin-left: -45px;
+            transition: background 0.3s;
+        }
+        .search-btn:hover { background: #d4af37; }
+
+        /* Griglia Categorie Prodotti */
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 2em;
+            color: #111;
+            margin-bottom: 40px;
+        }
+        .grid { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+        }
+        .card { 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            width: 350px; 
+            text-align: center; 
+            text-decoration: none; 
+            color: #333; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .card img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+        }
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 { 
+            margin: 0 0 10px 0; 
+            font-family: 'Georgia', serif; 
+            font-size: 1.5em;
+        }
+        .card p { 
+            color: #666; 
+            font-size: 0.95em; 
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-buy { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            background: #d4af37; 
+            color: #fff; 
+            border-radius: 25px; 
+            text-transform: uppercase; 
+            font-size: 0.85em; 
+            font-weight: bold;
+            letter-spacing: 1px; 
+            transition: background 0.3s;
+        }
+        .card:hover .btn-buy {
+            background: #111;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Keygap Glow</h1>
-        <div class="tagline">Luxury Beauty Search Engine</div>
+        <p>Il mio rituale di bellezza segreto. Prodotti premium a prezzi esclusivi.</p>
     </header>
 
-    <section class="dual-search-container">
-        <div class="search-box">
-            <h2>Amazon Beauty ✨</h2>
-            <div class="input-group">
-                <input type="text" id="amazonIn" placeholder="Cerca i Must-Have...">
-                <button class="btn btn-amazon" onclick="searchAmazon()">Cerca su Amazon</button>
-            </div>
-        </div>
-
-        <div class="search-box">
-            <h2>eBay Exclusives 🏷️</h2>
-            <div class="input-group">
-                <input type="text" id="ebayIn" placeholder="Trova occasioni Rare...">
-                <button class="btn btn-ebay" onclick="searchEbay()">Cerca su eBay</button>
-            </div>
-        </div>
-    </section>
-
-    <div class="gallery">
-        <div class="card"><img src="main_photo.jpg" alt="1"><div class="card-label">Daily Glow</div></div>
-        <div class="card"><img src="milk_bath.jpg" alt="2"><div class="card-label">Milk Ritual</div></div>
-        <div class="card"><img src="silk_legs.jpg" alt="3"><div class="card-label">Silk Secret</div></div>
+    <div class="search-section">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Cerca un prodotto (es. crema viso, siero)...">
+        <button class="search-btn" onclick="effettuaRicerca()">Cerca</button>
     </div>
 
-    <footer>
-        &copy; 2026 KEYGAP GLOW | PARTNER UFFICIALE RETAIL<br>
-        AMAZON ID: keygap-21 | EBAY ID: 5339145312
-    </footer>
+    <div class="categories-container">
+        <h2 class="section-title">Acquista per Categoria</h2>
+        <div class="grid">
+
+            <a href="INSERISCI_QUI_IL_TUO_LINK_AMAZON_O_EBAY_PER_IL_VISO" target="_blank" class="card">
+                <img src="main_photo.jpg" alt="Skincare Viso">
+                <div class="card-content">
+                    <div>
+                        <h3>Viso Effetto Vetro</h3>
+                        <p>I sieri illuminanti e le creme idratanti che uso quotidianamente per una pelle perfetta e senza imperfezioni.</p>
+                    </div>
+                    <span class="btn-buy">Vedi Prodotti Scontati</span>
+                </div>
+            </a>
+
+            <a href="INSERISCI_QUI_IL_TUO_LINK_AMAZON_O_EBAY_PER_IL_CORPO" target="_blank" class="card">
+                <img src="milk_bath.jpg" alt="Cura del Corpo">
+                <div class="card-content">
+                    <div>
+                        <h3>Body Care Ritual</h3>
+                        <p>Scrub esfolianti e burri per il corpo per una pelle morbidissima, come dopo una spa.</p>
+                    </div>
+                    <span class="btn-buy">Vedi Prodotti Scontati</span>
+                </div>
+            </a>
+
+            <a href="INSERISCI_QUI_IL_TUO_LINK_AMAZON_O_EBAY_PER_LE_GAMBE" target="_blank" class="card">
+                <img src="silk_legs.jpg" alt="Gambe di Seta">
+                <div class="card-content">
+                    <div>
+                        <h3>Gambe di Seta</h3>
+                        <p>Oli illuminanti, creme rassodanti e tutto il necessario per gambe perfette e luminose tutto l'anno.</p>
+                    </div>
+                    <span class="btn-buy">Vedi Prodotti Scontati</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
 
     <script>
-        // Funzione per il "Filtro Invisibile" (Previene cibi e oggetti non beauty)
-        function optimizeQuery(query) {
-            let q = query.trim().toLowerCase();
-            
-            // Se l'utente scrive parole a rischio, forziamo il contesto beauty
-            if (q === "olio" || q === "oli") return "olio corpo estetico";
-            if (q === "burro") return "burro corpo";
-            if (q === "maschera") return "maschera viso";
-            if (q === "siero") return "siero viso illuminante";
-            
-            // Se scrivono "olio" ma con altre parole (es. "olio mandorle"), aggiungiamo "corpo" per sicurezza
-            if (q.includes("olio") && !q.includes("corpo") && !q.includes("viso") && !q.includes("capelli")) {
-                return q + " corpo";
-            }
-            
-            return q;
-        }
-
-        document.getElementById("amazonIn").addEventListener("keypress", (e) => { if (e.key === "Enter") searchAmazon(); });
-        document.getElementById("ebayIn").addEventListener("keypress", (e) => { if (e.key === "Enter") searchEbay(); });
-
-        function searchAmazon() {
-            let rawQuery = document.getElementById('amazonIn').value;
-            if (rawQuery) {
-                let smartQuery = optimizeQuery(rawQuery);
-                const url = `https://www.amazon.it/s?k=${encodeURIComponent(smartQuery)}&i=beauty&tag=keygap-21`;
-                window.open(url, '_blank');
+        // Funzione per la ricerca libera che rimanda direttamente ad Amazon
+        // con il tuo tag affiliato (da configurare)
+        function effettuaRicerca() {
+            var query = document.getElementById('searchInput').value;
+            if(query) {
+                // Esempio: reindirizza ad Amazon con la ricerca dell'utente
+                // Ricordati di aggiungere il tuo tag affiliato nell'URL!
+                var urlRicerca = "https://www.amazon.it/s?k=" + encodeURIComponent(query) + "&tag=IL_TUO_TAG_AFFILIATO_QUI";
+                window.open(urlRicerca, '_blank');
             }
         }
 
-        function searchEbay() {
-            let rawQuery = document.getElementById('ebayIn').value;
-            if (rawQuery) {
-                let smartQuery = optimizeQuery(rawQuery);
-                const url = `https://www.ebay.it/sch/i.html?_nkw=${encodeURIComponent(smartQuery)}&_sacat=26395&mkcid=1&mkrid=724-53478-19255-0&siteid=101&campid=5339145312&customid=keygapglow&toolid=10001&mkevt=1`;
-                window.open(url, '_blank');
+        // Permette di cercare premendo "Invio" sulla tastiera
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                effettuaRicerca();
             }
-        }
+        });
     </script>
+
 </body>
 </html>
